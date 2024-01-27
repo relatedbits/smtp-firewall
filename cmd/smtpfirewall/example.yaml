@@ -1,0 +1,21 @@
+smtp_server:
+  addr: 0.0.0.0:1025
+  allow_insecure_auth: true
+sender:
+  type: smtp
+  awsses:
+    timeout: 5
+  mailjet:
+    apikey_public:
+    apikey_private:
+  smtp:
+    addr: smtp:25
+filter:
+  bad_domain:
+    enabled: false
+ratelimit: 10 # per second
+queue:
+  capacity: 100
+timedmap:
+  cooldown_seconds_for_single_recipient: 30
+  cleanup_per_n_second: 60
