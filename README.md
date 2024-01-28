@@ -23,7 +23,7 @@ services:
     ports:
       - 3000:80
   smtp_firewall:
-    build: .
+    image: relatedbits/smtp-firewall
     environment:
       FILTER_BAD_DOMAIN_ENABLED: true
   app:
