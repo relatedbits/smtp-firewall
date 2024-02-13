@@ -104,10 +104,11 @@ func newSender(config *viper.Viper) (output sender.Sender) {
 		output = sender.NewAWSSESSender(int16(config.GetInt(("sender.awsses.timeout"))))
 
 	case "mailjet":
+		baseurl := config.GetString("sender.mailjet.baseurl")
 		keyPub := config.GetString("sender.mailjet.apikey_public")
 		keyPri := config.GetString("sender.mailjet.apikey_private")
 
-		output = sender.NewMailjetSender(keyPub, keyPri)
+		output = sender.NewMailjetSender(keyPub, keyPri, baseurl)
 
 	case "smtp":
 		output = sender.NewSMTPSender(config.GetString("sender.smtp.addr"), nil)

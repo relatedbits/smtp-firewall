@@ -14,9 +14,17 @@ type MailjetSender struct {
 	client *mailjet.Client
 }
 
-func NewMailjetSender(mjApikeyPublic string, mjApikeyPrivate string) *MailjetSender {
+func NewMailjetSender(mjApikeyPublic string, mjApikeyPrivate string, baseURL string) *MailjetSender {
+	var client *mailjet.Client
+
+	if baseURL != "" {
+		client = mailjet.NewMailjetClient(mjApikeyPublic, mjApikeyPrivate, baseURL)
+	} else {
+		client = mailjet.NewMailjetClient(mjApikeyPublic, mjApikeyPrivate)
+	}
+
 	return &MailjetSender{
-		client: mailjet.NewMailjetClient(mjApikeyPublic, mjApikeyPrivate),
+		client: client,
 	}
 }
 
