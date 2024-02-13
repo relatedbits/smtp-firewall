@@ -6,6 +6,7 @@ sender:
   awsses:
     timeout: 5
   mailjet:
+    baseurl:
     apikey_public:
     apikey_private:
   smtp:

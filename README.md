@@ -42,12 +42,12 @@ Open your application and send an email.
 
 You may then open http://localhost:3000 to see if the email is being dropped.
 
-### Preparing an email blacklist
+### Prepare an email blacklist
 
 SMTP Firewall reads from `bad_domains.txt` for the email blacklist.
 Each line in the file represents a domain name.
 
-You may start from downloading Email blacklist online:
+You may start from downloading email blacklist online:
 - https://github.com/disposable-email-domains/disposable-email-domains
 
 ### Select an email service proviers
@@ -74,6 +74,7 @@ Environment variables:
 |Variable|Value(example)|
 |---|---|
 |SENDER_TYPE|mailjet|
+|SENDER_MAILJET_BASEURL|(Leave it blank to apply the default base URL defined by official library)|
 |SENDER_MAILJET_APIKEY_PUBLIC|APIKEY_PUBLIC|
 |SENDER_MAILJET_APIKEY_PRIVATE|APIKEY_PRIVATE|
 
